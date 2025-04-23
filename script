@@ -1,0 +1,33 @@
+---
+title: "script"
+output: html_document
+---
+
+This project aims to analyze the relationship between political orientation and the perception of insecurity among citizens in selected European countries. The analysis is based on data from the European Social Survey (ESS) – Round 11, a widely used cross-national survey that collects high-quality data on attitudes, beliefs, and behavior patterns across European countries.
+
+Country Selection
+The countries included in this analysis were chosen based on their geopolitical and cultural classification as either Eastern or Western Europe. Specifically, the Eastern European countries selected are Poland (PL), Hungary (HU), and Romania (RO). The Western European countries chosen are Germany (DE), France (FR), and Great Britain (GB). These countries were selected because they are representative cases of their respective regions and are regularly included in ESS data, ensuring a consistent and comparable dataset.
+
+The East-West comparison is particularly relevant in European studies, as these two blocs have distinct historical, political, and socio-economic backgrounds. For instance, Eastern countries often experienced decades of communist rule and transitioned to democratic systems only after the fall of the Soviet Union, while Western countries have had longer-standing liberal democracies. These historical differences may influence both political ideologies and social attitudes, including perceptions of insecurity.
+
+Data Preparation and Variable Construction
+The dataset was filtered to include only the countries of interest. A new variable, region, was created to classify each observation as either "Eastern" or "Western" based on the respondent's country. This allows for a straightforward comparison of patterns across regions.
+
+The variables of interest in the analysis are:
+
+lrscale: a self-placement scale where respondents indicate their political orientation from left (0) to right (10).
+
+aesfdrk: a variable measuring the level of perceived insecurity or fear of crime.
+
+To ensure the analysis is robust, observations with missing values (NA) for these two key variables were removed. Both variables were then converted to numeric format to allow for proper statistical modeling.
+
+Statistical Modeling
+Two regression models were developed. The first is a linear regression model assessing the relationship between political orientation (lrscale) and perceived insecurity (aesfdrk), including an interaction term with region. This model helps to explore whether the effect of political orientation on feelings of insecurity differs between Eastern and Western Europe.
+
+The second model is a binary linear model. In this version, perceived insecurity is transformed into a binary variable (insecure_binary), where a value of 1 represents high insecurity (when aesfdrk < 3) and 0 otherwise. This dichotomization is useful for highlighting extreme perceptions of insecurity and can simplify interpretation.
+
+Visualization
+To aid interpretation, a graph was generated using ggplot2. The final plot excludes individual data points and instead focuses on the regression lines for each region. This makes it easier to visually compare the trends in Eastern and Western Europe without the distraction of overlapping data points.
+
+Conclusion
+This analysis provides insight into how political ideology relates to perceptions of insecurity in different parts of Europe. The choice of countries enhances regional comparison, and the modeling approach allows for both nuanced and simplified interpretations of the data. The findings can contribute to broader discussions about political behavior, regional differences, and public attitudes in Europe.
